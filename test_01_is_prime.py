@@ -9,6 +9,7 @@
 # You can assume that the input number is a positive integer.
 
 from math import sqrt, floor
+from timeit import default_timer as timer
 
 # The simplest solution is to iterate through all numbers between 2 and input - 1
 # If input can be divided by any of these numbers, then input is not prime.
@@ -42,15 +43,21 @@ def is_prime_optimized(input):
     return True
 
 def test_is_prime():
+    start = timer()
     assert is_prime(0) is False
     assert is_prime(1) is False
     assert is_prime(2) is True
     assert is_prime(7) is True
     assert is_prime(64) is False
+    end = timer()
+    print(f"took {(end - start)* 1000} miliseconds")
 
 def test_is_prime_optimized():
+    start = timer()
     assert is_prime_optimized(0) is False
     assert is_prime_optimized(1) is False
     assert is_prime_optimized(2) is True
     assert is_prime_optimized(7) is True
     assert is_prime_optimized(64) is False
+    end = timer()
+    print(f"took {(end - start)* 1000} miliseconds")
